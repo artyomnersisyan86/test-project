@@ -29,51 +29,57 @@
 
                         <thead>
 
-                            <tr>
+                        <tr>
 
-                                <th> Կոդ </th>
+                            <th> Կոդ</th>
 
-                                <th> Ակտիվ է </th>
+                            <th> Ակտիվ է</th>
 
-                                <th> Տեսակ </th>
+                            <th> Տեսակ</th>
 
-                                <th> Օպերատոր </th>
+                            <th> Օպերատոր</th>
 
-                                <th> Հեռաղոսահամար </th>
+                            <th> Հեռաղոսահամար</th>
 
-                                <th> Ողարկել sms հաղորդագրություն</th>
+                            <th> Ողարկել sms հաղորդագրություն</th>
 
-                                <th> Նշումներ </th>
+                            <th> Նշումներ</th>
 
-                                <th> Մուտքագրող գործակալ </th>
+                            <th> Մուտքագրող գործակալ</th>
+                            <th> Մուտքագրող</th>
 
-                                <th> Մուտքագրող </th>
-
-                            </tr>
+                        </tr>
 
                         </thead>
 
                         <tbody>
 
-                            <tr v-for="phone in getCUSTPHONE" :key="phone.ID" :phone="phone.ID">
+                        <tr v-for="phone in getCUSTPHONE" :key="phone.ID" :phone="phone.ID">
                                 <td>
-                                    <input type="number" name="" :ID="phone.ID" disabled v-model="phone.ID" value="phone.ID">
+                                    <input type="number" name="" :ID="phone.ID"
+                                           disabled v-model="phone.ID" value="phone.ID">
 
                                 </td>
 
                                 <td>
 
-                                    <v-checkbox v-model="phone.STATE" :STATE="phone.STATE" color="pink lighten-2" :value="phone.STATE"></v-checkbox>
+                                    <v-checkbox v-model="phone.STATE" :STATE="phone.STATE"
+                                                color="pink lighten-2" :value="phone.STATE">
+
+                                    </v-checkbox>
 
                                 </td>
                                 <td>
 
                                     <div>
 
-                                        <select class=" selectMy  " prepend-icon="" :KIND="phone.KIND" v-model="phone.KIND">
+                                        <select class=" selectMy  " prepend-icon="" :KIND="phone.KIND"
+                                                v-model="phone.KIND">
 
-                                            <option :value="kind.NUMID" class="black--text caption select" id="selectMy"
-                                             v-for="kind in GETPHONEKIND " :key="kind.NUMID"> {{kind.NAME_A}}
+                                            <option :value="kind.NUMID"
+                                                    class="black--text caption select" id="selectMy"
+                                             v-for="kind in GETPHONEKIND " :key="kind.NUMID">
+                                                {{kind.NAME_A}}
 
                                             </option>
 
@@ -85,9 +91,11 @@
 
                                 <td>
 
-                                    <select class=" selectMy  " :CODE="phone.CODE" v-model="phone.CODE">
+                                    <select class=" selectMy " :CODE="phone.CODE"
+                                            v-model="phone.CODE">
 
-                                        <option :value="code.CHARID" class="black--text caption select" id="selectMy"
+                                        <option :value="code.CHARID"
+                                                class="black--text caption select" id="selectMy"
                                          v-for="code in GETPHONECODE " :key="code.NUMID"> {{ code.CHARID}} {{code.NAME_A}}
 
                                         </option>
@@ -98,13 +106,15 @@
 
                                 <td>
 
-                                    <input type="Number" name="" :PHONE="phone.PHONE" v-model="phone.PHONE" value="phone.PHONE">
+                                    <input type="Number" name="" :PHONE="phone.PHONE"
+                                           v-model="phone.PHONE" value="phone.PHONE">
 
                                 </td>
 
                                 <td>
 
-                                    <v-checkbox v-model="phone.ISSMS" color="pink lighten-2" :ISSMS="phone.ISSMS" :value="phone.ISSMS"></v-checkbox>
+                                    <v-checkbox v-model="phone.ISSMS" color="pink lighten-2"
+                                                :ISSMS="phone.ISSMS" :value="phone.ISSMS"></v-checkbox>
 
                                 </td>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
- <v-container fluid pa-1 >   
+ <v-container fluid pa-1 >
         <v-row no-gutters class="pa-0 ">
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
   <v-col class="">
@@ -20,26 +20,22 @@
                       <span class="pl-9">Նորացնել</span>
                     </v-btn>
                   </div>
-                  <div 
-                                  
-                  
-                  >
-                    <!--           arr[i]="arr[i]" -->
-                    <v-btn
-                    v-for="phone1 in getCUSTPHONE" :key="phone1.ID"
-          :phone1="phone1.ID"
-                                    @click="getCustomerDataMethod(
-                                                 phone1.ID, 
-                                                phone1.STATE, 
-                                                phone1.KIND,
-                                                 phone1.CODE,
-                                                 phone1.PHONE,
-                                                 phone1.ISSMS,
-                                                   phone1.NOTE,
-                                                 phone1.ONLUSER,
-                                                  phone1.TSUSER
-                                                   )"
+                  <div
 
+
+                  >
+
+<!--                    phone1.ID,-->
+<!--                    phone1.STATE,-->
+<!--                    phone1.KIND,-->
+<!--                    phone1.CODE,-->
+<!--                    phone1.PHONE,-->
+<!--                    phone1.ISSMS,-->
+<!--                    phone1.NOTE,-->
+<!--                    phone1.ONLUSER,-->
+<!--                    phone1.TSUSER-->
+                    <!--       v-for="phone1 in getCUSTPHONE" :key="phone1.ID" :phone1="phone1.ID"    arr[i]="arr[i]" -->
+                    <v-btn @click="getCustomerDataMethod()"
                       color="pink"
                       class="text-capitalize justify-start"
                       width="200"
@@ -72,7 +68,7 @@
                       </template>
                       <v-list>
                         <v-list-item class="deep-purple">
-                          
+
                           <v-list-item-title class="white--text p-0"></v-list-item-title>
                         </v-list-item>
                       </v-list>
@@ -126,10 +122,10 @@
                     </v-btn>
                   </div>
                 </v-col>
-                
+
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
 <v-col class="pl-5">
-            
+
 
                   <div>
                     <v-menu offset-y>
@@ -205,7 +201,7 @@
                     </v-btn>
                   </div>
                 </v-col>
-              
+
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
 
             <v-col class="pl-5">
@@ -240,7 +236,7 @@
                   </div>
                 </v-col>
 
-              
+
               </v-row>
  </v-container>
 </div>
@@ -264,14 +260,14 @@ url: {
     }
 },
 mounted() {
- let arr=this.getCUSTPHONE
-
-  for(let i = 0; i<arr.length; i++){
-this.phone1=arr[i]
-    console.log(this.phone1)
-    
-  
-}
+//  let arr=this.getCUSTPHONE
+//
+//   for(let i = 0; i<arr.length; i++){
+// this.phone1=arr[i]
+//     console.log(this.phone1)
+//
+//
+// }
 },
 
     computed: {
@@ -280,33 +276,28 @@ this.phone1=arr[i]
         },
     },
     methods: {
-       getCustomerDataMethod(
-        ID, STATE, KIND, CODE, PHONE, ISSMS, NOTE, ONLUSER, TSUSER ) {
-           
-            var formdata = new FormData();
-            formdata.append("ID",ID);
-            formdata.append("KIND",KIND);
-            formdata.append("CODE", CODE);
-            formdata.append("PHONE", PHONE);
-            formdata.append("ISSMS", Number(ISSMS));
-            formdata.append("STATE", Number(STATE));
-             formdata.append("ONLUSER", ONLUSER);
-            formdata.append("NOTE", NOTE);
-            formdata.append("TSUSER", TSUSER);
-            this.axios
-                .post(this.url.CUSTPHONEUPDATE, formdata
-                )
-                .then(responce => {
-                    // console.log(responce.body)
-                    console.log(responce.data)
-                    // this.$store.state.CUSTPHONE = responce.data.CUSTPHONE;
-
-                })
-
-                .catch(function(error) {
-                    alert("կապի խափանում");
-                    console.log(error.message);
-                });
+       getCustomerDataMethod() {
+         var rowData;
+           var gridData=this.$store.state.CUSTPHONE;
+           for(rowData of gridData) {
+             var formdata = new FormData();
+             formdata.append("ID",rowData.ID);
+             formdata.append("KIND",rowData.KIND);
+             formdata.append("CODE",rowData.CODE);
+             formdata.append("PHONE",rowData.PHONE);
+             formdata.append("ISSMS",Number(rowData.ISSMS));
+             formdata.append("STATE",Number(rowData.STATE));
+             formdata.append("ONLUSER",rowData.ONLUSER);
+             formdata.append("NOTE",rowData.NOTE);
+             formdata.append("TSUSER",rowData.TSUSER);
+             this.axios.post(this.url.CUSTPHONEUPDATE, formdata).then(responce => {
+               console.log(responce.data)
+                 // this.$store.state.CUSTPHONE = responce.data.CUSTPHONE;
+               }).catch(function (error) {
+                 alert("կապի խափանում");
+                 console.log(error.message);
+               });
+           }
 
         },
 },

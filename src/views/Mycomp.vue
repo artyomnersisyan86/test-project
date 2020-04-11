@@ -1,137 +1,140 @@
 <template>
-  <v-card>
-    <v-toolbar
-      color="deep-purple accent-4"
-      dark
-      flat
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+	<v-card>
+		<v-toolbar
+			color="deep-purple accent-4"
+			dark
+			flat
+		>
+			<v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Page title</v-toolbar-title>
+			<v-toolbar-title>Page title</v-toolbar-title>
 
-      <v-spacer></v-spacer>
+			<v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+			<v-btn icon>
+				<v-icon>mdi-magnify</v-icon>
+			</v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+			<v-btn icon>
+				<v-icon>mdi-dots-vertical</v-icon>
+			</v-btn>
 
-      <template v-slot:extension>
-        <v-tabs
-          v-model="currentItem"
-          fixed-tabs
-          slider-color="white"
-        >
-          <v-tab
-            v-for="item in items"
-            :key="item.id"
-             router  :to="item.route" 
-            :href="'#tab-' + item.title"
-          >
-            {{ item.title }}
-             <v-btn  icon color="pink" dark @click="del(item)">
-          <v-icon>mdi-close</v-icon>
-             </v-btn>
-          </v-tab>
+			<template v-slot:extension>
+				<v-tabs
+					v-model="currentItem"
+					fixed-tabs
+					slider-color="white"
+				>
+					<v-tab
+						v-for="item in items"
+						:key="item.id"
+						router :to="item.route"
+						:href="'#tab-' + item.title"
+					>
+						{{ item.title }}
+						<v-btn icon color="pink" dark @click="del(item)">
+							<v-icon>mdi-close</v-icon>
+						</v-btn>
+					</v-tab>
 
-          <v-menu
-            v-if="more.length"
-            bottom
-            left
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn
-                text
-                class="align-self-center mr-4"
-                v-on="on"
-              >
-                more
-                <v-icon right>mdi-menu-down</v-icon>
-              </v-btn>
-            </template>
+					<v-menu
+						v-if="more.length"
+						bottom
+						left
+					>
+						<template v-slot:activator="{ on }">
+							<v-btn
+								text
+								class="align-self-center mr-4"
+								v-on="on"
+							>
+								more
+								<v-icon right>mdi-menu-down</v-icon>
+							</v-btn>
+						</template>
 
-            <v-list class="grey lighten-3">
-              <v-list-item
-                v-for="item in more"
-                :key="item.id"
-                  router  :to="item.route" 
-                @click="addItem(item)"
-              >
-                {{ item.title }}
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-tabs>
-      </template>
-    </v-toolbar>
+						<v-list class="grey lighten-3">
+							<v-list-item
+								v-for="item in more"
+								:key="item.id"
+								router :to="item.route"
+								@click="addItem(item)"
+							>
+								{{ item.title }}
+							</v-list-item>
+						</v-list>
+					</v-menu>
+				</v-tabs>
+			</template>
+		</v-toolbar>
 
-    <v-tabs-items v-model="currentItem">
-      <v-tab-item
-        v-for="item in items"
-        :key="item.id"
-        router :to="item.route"
-        :value="'tab-' + item"
-      >
-        <v-card flat>
-          <v-card-text>
-            <h2>hello {{ item.title }}</h2>
-            {{ text }}
-          </v-card-text>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
-  </v-card>
+		<v-tabs-items v-model="currentItem">
+			<v-tab-item
+				v-for="item in items"
+				:key="item.id"
+				router :to="item.route"
+				:value="'tab-' + item"
+			>
+				<v-card flat>
+					<v-card-text>
+						<h2>hello {{ item.title }}</h2>
+						{{ text }}
+					</v-card-text>
+				</v-card>
+			</v-tab-item>
+		</v-tabs-items>
+	</v-card>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      currentItem: 'tab-',
-      items: [
-        
-      ],
-      // more: [
-      //   'News', 'Maps', 'Books', 'Flights', 'Apps',
-      // ],
+    export default {
+        data: () => ({
+            currentItem: 'tab-',
+            items: [],
+            // more: [
+            //   'News', 'Maps', 'Books', 'Flights', 'Apps',
+            // ],
 
-        more: [
-        { title: 'Անձանց տեղեկատու', route:'/DirectoryOfPersons' },
-        { title: 'Գործակալներ', route:'/about' },
-        { title: 'Հաշվառման ենթակա ձևաթղթերի վարում', route:'/emty2' },
-        { title: 'Օգտվողների իրավասություններ' },
-        { title: 'Մասնաճյուղեր' },
-        
-       
-      ],
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    }),
+            more: [
+                {title: 'Անձանց տեղեկատու', route: '/DirectoryOfPersons'},
+                {title: 'Գործակալներ', route: '/about'},
+                {title: 'Հաշվառման ենթակա ձևաթղթերի վարում', route: '/emty2'},
+                {title: 'Օգտվողների իրավասություններ'},
+                {title: 'Մասնաճյուղեր'},
 
-    methods: {
 
-del(item){
-    
- this.items.splice(item, 1)
+            ],
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        }),
+
+        methods: {
+
+            del(item) {
+
+                this.items.splice(item, 1)
 
 
 // this.items.splice(0, 1)
- this.$nextTick(() => { this.currentItem = 'tab-' + item })
-},
+                this.$nextTick(() => {
+                    this.currentItem = 'tab-' + item
+                })
+            },
 
-      addItem (item) {
-        this.items.push(item
-        )
-       
-        this.$nextTick(() => { this.currentItem = 'tab-' + item })
-      },
-    },
-  }
-  //  this.more.push(...removed)
-        // const removed = this.items.splice(0, 1)
+            addItem(item) {
+                this.items.push(item
+                )
+
+                this.$nextTick(() => {
+                    this.currentItem = 'tab-' + item
+                })
+            },
+        },
+    }
+    //  this.more.push(...removed)
+    // const removed = this.items.splice(0, 1)
 
 </script>
 <style>
+
 
 </style>

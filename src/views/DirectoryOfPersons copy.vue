@@ -20,9 +20,12 @@
                             <!-- Update button (Նորացնել) -->
 
                             <div>
-                                <v-btn color="pink" width="200" height="32" outlined class="text-capitalize caption justify-start "
-                                 dark @click="getDataMethod">
-                                    <v-icon class="text-left" color="dark" size="24" left>mdi-autorenew</v-icon>
+                                <v-btn color="pink" width="200" height="32" outlined
+                                       class="text-capitalize caption justify-start "
+                                       dark @click="getDataMethod">
+                                    <v-icon class="text-left" color="dark" size="24" left>
+                                        mdi-autorenew
+                                    </v-icon>
 
                                     <span class="pl-9">Նորացնել</span>
                                 </v-btn>
@@ -30,7 +33,9 @@
                             <div class="pt-2">
                                 <v-menu offset-y>
                                     <template v-slot:activator="{ on }">
-                                        <v-btn color="pink" width="200" class="text-capitalize caption justify-start" height="32" outlined dark v-on="on">
+                                        <v-btn color="pink" width="200"
+                                               class="text-capitalize caption justify-start"
+                                               height="32" outlined dark v-on="on">
                                             <v-icon size="24" left color="dark">add</v-icon>
 
                                             <span class="pl-9 pr-8">Ավելացնել</span>
@@ -39,16 +44,20 @@
                                         </v-btn>
                                     </template>
                                     <v-list>
-                                        <v-list-item class="pink" v-for="(item, index) in items" :key="index" router :to="item.route">
+                                        <v-list-item class="pink" v-for="(item, index) in items"
+                                                     :key="index" router :to="item.route">
                                             <!--route to nodal -->
-                                            <v-list-item-title class="white--text caption p-0">{{item.title }}</v-list-item-title>
+                                            <v-list-item-title class="white--text caption p-0">
+                                                {{item.title }}
+                                            </v-list-item-title>
                                         </v-list-item>
                                     </v-list>
                                 </v-menu>
                             </div>
-                                                        <div class="pt-2">
+                            <div class="pt-2">
 
-                                <v-btn color="pink" class="text-capitalize justify-start" width="200" height="32" outlined small dark>
+                                <v-btn color="pink" class="text-capitalize justify-start"
+                                       width="200" height="32" outlined small dark>
                                     <v-icon left size="24" color="dark">edit</v-icon>
                                     <span class="pl-9">Փոփոխել</span>
                                 </v-btn>
@@ -56,25 +65,30 @@
                         </v-col>
                         <v-col>
                             <div>
-                                <v-btn color="pink" class="text-capitalize justify-start  " width="200" height="32" outlined small dark>
-                                    <v-icon left class="" size="24" color="dark">delete_forever</v-icon>
+                                <v-btn color="pink" class="text-capitalize justify-start  "
+                                       width="200" height="32" outlined small dark>
+                                    <v-icon left class="" size="24" color="dark">delete_forever
+                                    </v-icon>
                                     <span class="pl-9">Հեռացնել</span>
                                 </v-btn>
 
                             </div>
-                                         <div class="pt-2">
 
-                                <v-btn color="pink" class="text-capitalize justify-start" width="200" height="32" outlined small dark>
-                                    <v-icon left size="24" color="dark">emoji_people</v-icon>
-                                    <span class="pl-9">Կասեցնել</span>
-                                </v-btn>
-                            </div>
-                                                                                  <div class="pt-2">
-                                <v-btn color="pink" class="text-capitalize justify-start" width="200" height="32" outlined small dark>
-                                    <v-icon left size="24" color="dark">edit</v-icon>
-                                    <span>Փոփոխել ծածկագիր</span>
-                                </v-btn>
-                            </div>
+<!--                            <div class="pt-2">-->
+
+<!--                                <v-btn color="pink" class="text-capitalize justify-start"-->
+<!--                                       width="200" height="32" outlined small dark>-->
+<!--                                    <v-icon left size="24" color="dark">emoji_people</v-icon>-->
+<!--                                    <span class="pl-9">Կասեցնել</span>-->
+<!--                                </v-btn>-->
+<!--                            </div>-->
+<!--                            <div class="pt-2">-->
+<!--                                <v-btn color="pink" class="text-capitalize justify-start"-->
+<!--                                       width="200" height="32" outlined small dark>-->
+<!--                                    <v-icon left size="24" color="dark">edit</v-icon>-->
+<!--                                    <span>Փոփոխել ծածկագիր</span>-->
+<!--                                </v-btn>-->
+<!--                            </div>-->
                         </v-col>
                         <v-col class="pt-0">
                             <div>
@@ -154,31 +168,33 @@
                             </div>
                         </v-col>
                         <v-col>
-                            <div>
-                               <v-form 
+                            <div v-for="input in inputItems" :key="input.id">
+                               <v-form
                                 @submit.prevent >
-                                    <v-text-field success outlined placeholder="Անուն" 
-                                    dense flat v-model="NAME_A" :value="NAME_A" class="caption" 
-                                    prepend-inner-icon="people"></v-text-field>
+
+                                    <v-text-field success outlined placeholder="input.placeholder"
+                                    dense flat v-model="input.model" :value="input.model"
+                                                  class="caption"
+                                    prepend-inner-icon="input.icon"></v-text-field>
                                 </v-form>
                             </div>
 
-                            <div>
-                                <v-form 
-                                @submit.prevent >
-                                    <v-text-field background-color 
-                                    success outlined placeholder="Ազգանուն" 
-                                    dense flat v-model="SNAME_A" :value="SNAME_A" prepend-inner-icon="people" 
-                                    class="caption"></v-text-field>
-                                </v-form>
-                            </div>
-                            <div class="heightWidthClass ">
-                                 <v-form 
-                                @submit.prevent >
-                                    <v-text-field success outlined placeholder="Անձի կոդ" dense flat
-                                     v-model="CUSTOMER" class="caption" v-bind:value="CUSTOMER" prepend-inner-icon="people"></v-text-field>
-                                </v-form>
-                            </div>
+<!--                            <div>-->
+<!--                                <v-form-->
+<!--                                @submit.prevent >-->
+<!--                                    <v-text-field background-color-->
+<!--                                    success outlined placeholder="Ազգանուն"-->
+<!--                                    dense flat v-model="SNAME_A" :value="SNAME_A" prepend-inner-icon="people"-->
+<!--                                    class="caption"></v-text-field>-->
+<!--                                </v-form>-->
+<!--                            </div>-->
+<!--                            <div class="heightWidthClass ">-->
+<!--                                 <v-form-->
+<!--                                @submit.prevent >-->
+<!--                                    <v-text-field success outlined placeholder="Անձի կոդ" dense flat-->
+<!--                                     v-model="CUSTOMER" class="caption" v-bind:value="CUSTOMER" prepend-inner-icon="people"></v-text-field>-->
+<!--                                </v-form>-->
+<!--                            </div>-->
                         </v-col>
 
                         <v-col>
@@ -283,14 +299,29 @@ export default {
         return {
             // DocDetHome: [],
 
-            CUSTOMER: "",
             // getData: [],
+            inputItems: [
+                {model:this.CUSTOMER, placeholder: "Անձի կոդ", icon: 'people'},
+                {model: this.NAME_A, placeholder: "Անուն", icon: 'people'},
+                {model: this.SNAME_A, placeholder: "Ազգանուն", icon: 'people'},
+
+
+            ],
+            // //   name      Հեռացնել           Կասեցնել     Փոփոխել ծածկագիր
+            //   icon     delete_forever, emoji_peopl,       eedit
+            //   class     pl-9        ,    pl-9        , ---
+            buttonItems:[
+                {buttonName:"Հեռացնել" }
+            ]
             search: "",
+            // CUSTOMER: "",
+            // NAME_A: "",
+
+            // SNAME_A: "",
             SOCCART: "",
             DOCKIND: "",
             CHARID: "",
-            NAME_A: "",
-            SNAME_A: "",
+
             DOCNUM: "",
 
             url: {
@@ -351,12 +382,13 @@ mounted() {
             };
 
             if (
-                this.CUSTOMER === "" &&
+                this.inputItems.model.CUSTOMER === "" &&
+                this.inputItems.model.NAME_A === "" &&
+                this.inputItems.model.SNAME_A === "" &&
                 this.SOCCART === "" &&
                 this.DOCKIND === "" &&
                 this.CHARID === "" &&
-                this.NAME_A === "" &&
-                this.SNAME_A === "" &&
+
                 this.DOCNUM === ""
             ) {
                 this.axios
@@ -364,12 +396,13 @@ mounted() {
                         this.url.getData, {
                             params: {
                                 // ISALL: 0,
-                                CUSTOMER: this.CUSTOMER,
+                                CUSTOMER: this.inputItems.model.CUSTOMER,
+                                NAME_A: this.inputItems.model.NAME_A,
+                                SNAME_A: this.inputItems.model.SNAME_A,
                                 SOCCART: this.SOCCART,
                                 DOCKIND: this.DOCKIND,
                                 CHARID: this.CHARID,
-                                NAME_A: this.NAME_A,
-                                SNAME_A: this.SNAME_A,
+
                                 DOCNUM: this.DOCNUM
                             }
                         },
@@ -390,12 +423,20 @@ mounted() {
                         this.url.getData, {
                             params: {
                                 // ISALL: 1,
-                                CUSTOMER: this.CUSTOMER,
+                                // CUSTOMER: this.CUSTOMER,
+                                // SOCCART: this.SOCCART,
+                                // DOCKIND: this.DOCKIND,
+                                // CHARID: this.CHARID,
+                                // NAME_A: this.NAME_A,
+                                // SNAME_A: this.SNAME_A,
+                                // DOCNUM: this.DOCNUM
+                                CUSTOMER: this.inputItems.model.CUSTOMER,
+                                NAME_A: this.inputItems.model.NAME_A,
+                                SNAME_A: this.inputItems.model.SNAME_A,
                                 SOCCART: this.SOCCART,
                                 DOCKIND: this.DOCKIND,
                                 CHARID: this.CHARID,
-                                NAME_A: this.NAME_A,
-                                SNAME_A: this.SNAME_A,
+
                                 DOCNUM: this.DOCNUM
                             }
                         },
