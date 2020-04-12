@@ -1,157 +1,77 @@
 <template>
 <div>
-
     <v-container fluid pa-0 pl-1>
-
         <v-row no-gutters>
-
             <v-col cols="12" md="12" sm="6" xs="6">
-
                 <v-system-bar color="pink lighten-2" dark>
-
                     <v-icon>phone</v-icon>
-
                     <span>Հեռախոսահամարներ</span>
-
                 </v-system-bar>
-
             </v-col>
-
         </v-row>
-
         <v-row no-gutters>
-
             <v-col cols="12" md="12" sm="6" xs="6">
-
                 <v-simple-table fixed-header dense>
-
                     <template v-slot:default>
-
                         <thead>
-
-                        <tr>
-
-                            <th> Կոդ</th>
-
-                            <th> Ակտիվ է</th>
-
-                            <th> Տեսակ</th>
-
-                            <th> Օպերատոր</th>
-
-                            <th> Հեռաղոսահամար</th>
-
-                            <th> Ողարկել sms հաղորդագրություն</th>
-
-                            <th> Նշումներ</th>
-
-                            <th> Մուտքագրող գործակալ</th>
-                            <th> Մուտքագրող</th>
-
-                        </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                        <tr v-for="phone in getCUSTPHONE" :key="phone.ID" :phone="phone.ID">
-                                <td>
-                                    <input type="number" name="" :ID="phone.ID"
-                                           disabled v-model="phone.ID" value="phone.ID">
-
-                                </td>
-
-                                <td>
-
-                                    <v-checkbox v-model="phone.STATE" :STATE="phone.STATE"
-                                                color="pink lighten-2" :value="phone.STATE">
-
-                                    </v-checkbox>
-
-                                </td>
-                                <td>
-
-                                    <div>
-
-                                        <select class=" selectMy  " prepend-icon="" :KIND="phone.KIND"
-                                                v-model="phone.KIND">
-
-                                            <option :value="kind.NUMID"
-                                                    class="black--text caption select" id="selectMy"
-                                             v-for="kind in GETPHONEKIND " :key="kind.NUMID">
-                                                {{kind.NAME_A}}
-
-                                            </option>
-
-                                        </select>
-
-                                    </div>
-
-                                </td>
-
-                                <td>
-
-                                    <select class=" selectMy " :CODE="phone.CODE"
-                                            v-model="phone.CODE">
-
-                                        <option :value="code.CHARID"
-                                                class="black--text caption select" id="selectMy"
-                                         v-for="code in GETPHONECODE " :key="code.NUMID"> {{ code.CHARID}} {{code.NAME_A}}
-
-                                        </option>
-
-                                    </select>
-
-                                </td>
-
-                                <td>
-
-                                    <input type="Number" name="" :PHONE="phone.PHONE"
-                                           v-model="phone.PHONE" value="phone.PHONE">
-
-                                </td>
-
-                                <td>
-
-                                    <v-checkbox v-model="phone.ISSMS" color="pink lighten-2"
-                                                :ISSMS="phone.ISSMS" :value="phone.ISSMS"></v-checkbox>
-
-                                </td>
-
-                                <!-- <td>{{phone.NOTE}} </td> -->
-
-                                <td>
-
-                                    <input type="text" name="" v-model="phone.NOTE" :NOT="phone.NOTE" value="phone.NOTE">
-
-                                </td>
-
-                                <!-- <td>{{phone.ONLUSER}} </td> -->
-
-                                <td>
-
-                                    <input type="text" name="" v-model="phone.ONLUSER" disabled :ONLUSER="phone.ONLUSER" value="phone.ONLUSER">
-
-                                </td>
-
-                                <!-- <td>{{phone.TSUSER}} </td> -->
-
-                                <td>
-
-                                    <input type="text" name="" v-model="phone.TSUSER" :TSUSER="phone.TSUSER" disabled value="phone.TSUSER">
-
-                                </td>
-
+                            <tr>
+                                <th> Կոդ </th>
+                                <th> Ակտիվ է </th>
+                                <th> Տեսակ </th>
+                                <th> Օպերատոր </th>
+                                <th> Հեռաղոսահամար </th>
+                                <th> Ողարկել sms հաղորդագրություն</th>
+                                <th> Նշումներ </th>
+                                <th> Մուտքագրող գործակալ </th>
+                                <th> Մուտքագրող </th>
                             </tr>
-
+                        </thead>
+                        <tbody>
+                            <tr v-for="phone in getCUSTPHONE" :key="phone.ID" :phone="phone.ID">
+                                <td>
+                                    <input type="number" name="" :ID="phone.ID" disabled v-model="phone.ID" value="phone.ID">
+                                </td>
+                                <td>
+                                    <v-checkbox v-model="phone.STATE" :STATE="phone.STATE" color="pink lighten-2" :value="phone.STATE"></v-checkbox>
+                                </td>
+                                <td>
+                                    <div>
+                                        <select class=" selectMy  " prepend-icon="" :KIND="phone.KIND" v-model="phone.KIND">
+                                            <option :value="kind.NUMID" class="black--text caption select" id="selectMy"
+                                             v-for="kind in GETPHONEKIND " :key="kind.NUMID"> {{kind.NAME_A}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class=" selectMy  " :CODE="phone.CODE" v-model="phone.CODE">
+                                        <option :value="code.CHARID" class="black--text caption select" id="selectMy"
+                                         v-for="code in GETPHONECODE " :key="code.NUMID"> {{ code.CHARID}} {{code.NAME_A}}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="Number" name="" :PHONE="phone.PHONE" v-model="phone.PHONE" value="phone.PHONE">
+                                </td>
+                                <td>
+                                    <v-checkbox v-model="phone.ISSMS" color="pink lighten-2" :ISSMS="phone.ISSMS" :value="phone.ISSMS"></v-checkbox>
+                                </td>
+                                <td>
+                                    <input type="text" name="" v-model="phone.NOTE" :NOT="phone.NOTE" value="phone.NOTE">
+                                </td>
+                                <td>
+                                    <input type="text" name="" v-model="phone.ONLUSER" disabled :ONLUSER="phone.ONLUSER" value="phone.ONLUSER">
+                                </td>
+                                <td>
+                                    <input type="text" name="" v-model="phone.TSUSER" :TSUSER="phone.TSUSER" disabled value="phone.TSUSER">
+                                </td>
+                            </tr>
                         </tbody>
                     </template>
                 </v-simple-table>
             </v-col>
         </v-row>
-
     </v-container>
-
 </div>
 </template>
 
@@ -181,7 +101,7 @@ export default {
         ...mapGetters([
     'GETPHONECODE',
     'GETPHONEKIND',
-    
+
 ]),
         //  store.js -ից եկած տվյալներ call POPUPLeftTabs
         // getPhoneCodeData() {

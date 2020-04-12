@@ -4,11 +4,11 @@ export default {
 
     // տվյալները լրացված են LegalEntity.vue և IndividualEntrepreneur մեջ
     state: {
-        //    Ռեզիդենտություն 
+        //    Ռեզիդենտություն
         residence: []
     },
     actions: {
-        //    Ռեզիդենտություն 
+        //    Ռեզիդենտություն
 
         GET_RESIDENCE_ACTIONS({ commit }) {
             return axios('http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=RESIDENCE', {
@@ -26,7 +26,7 @@ export default {
     },
     getters: {
 
-        //    Ռեզիդենտություն 
+        //    Ռեզիդենտություն
         GETRESIDENCE(state) {
             return state.residence
         }
@@ -34,7 +34,7 @@ export default {
     },
 
     mutations: {
-        //    Ռեզիդենտություն 
+        //    Ռեզիդենտություն
 
         'SET_RESIDENCE_TO_STATE': (state, responce) => {
             state.residence = responce.data.data

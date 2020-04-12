@@ -4,11 +4,11 @@ export default {
 
     // տվյալները լրացված են LegalEntity.vue և IndividualEntrepreneur մեջ
     state: {
-        //    Գրանցված մարմին 
+        //    Գրանցված մարմին
         registeredOrgan: []
     },
     actions: {
-        //    Գրանցված մարմին 
+        //    Գրանցված մարմին
 
         GET_REGISTEREDORGAN_ACTIONS({ commit }) {
             return axios('http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=ORGNAME', {
@@ -26,7 +26,7 @@ export default {
     },
     getters: {
 
-        //    Գրանցված մարմին 
+        //    Գրանցված մարմին
         GETREGISTEREDORGAN(state) {
             return state.registeredOrgan
         }
@@ -34,7 +34,7 @@ export default {
     },
 
     mutations: {
-        //    Գրանցված մարմին 
+        //    Գրանցված մարմին
 
         'SET_REGISTEREDORGAN_TO_STATE': (state, responce) => {
             state.registeredOrgan = responce.data.data

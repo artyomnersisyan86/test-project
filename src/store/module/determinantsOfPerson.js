@@ -4,7 +4,7 @@ export default {
 
     // տվյալները լրացված են DirectoryOfPersons.vue մեջ
     state: {
-        //    որոշիչներ 
+        //    որոշիչներ
         determinantsOfPerson: [],
     },
     actions: {
@@ -15,36 +15,23 @@ export default {
             }).then((responce) => {
                 commit('SET_DETERMINANTS_OF_PERSON', responce);
                 return responce;
-
-
             }).catch(function(error) {
                 alert("կապի խափանում");
                 console.log(error);
                 return error;
             });
         },
-
     },
     getters: {
-
-        // VOROSHICNER NAVBARI 
+        // VOROSHICNER NAVBARI
         DETERMINANTSOFPERSON(state) {
             return state.determinantsOfPerson
         },
-
     },
-
-
     mutations: {
         //որոշիչներ
         SET_DETERMINANTS_OF_PERSON: (state, responce) => {
             state.determinantsOfPerson = responce.data.data
-
         },
-
-
     },
-
-
-
 }

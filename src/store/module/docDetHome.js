@@ -30,7 +30,7 @@ export default {
     },
     getters: {
 
-        // tesak NAVBARI 
+        // tesak NAVBARI
         DOCDETHOME(state) {
             return state.docDetHome
         },

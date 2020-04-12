@@ -4,39 +4,39 @@
 <v-col cols="12" >
      <!-- :COUNTRY="addresses.COUNTRY" -->
 <v-expansion-panels :popout="false"  :focusable="true"  :hover="true"    >
-      <v-expansion-panel 
-       v-for="addresses in getCUSTADDRES" :key="addresses.ID" 
+      <v-expansion-panel
+       v-for="addresses in getCUSTADDRES" :key="addresses.ID"
        >
-        <v-expansion-panel-header ripple class="grey lighten-2 pink--text" 
+        <v-expansion-panel-header ripple class="grey lighten-2 pink--text"
       @click="address(addresses.COUNTRY,addresses.REGION)"
-        
+
         >Գրանցման տվյալներ</v-expansion-panel-header>
         <v-expansion-panel-content  >
 
 <v-container fluid  pa-0>
-  
-       
-      
+
+
+
 <!-- State Պետություն -->
-  
+
 
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-        <v-form 
+        <v-form
                 @submit.prevent >
-                    <v-autocomplete color="pink lighten-2" 
+                    <v-autocomplete color="pink lighten-2"
 
                     v-model="addresses.COUNTRY"
-            
+
                      :items="GETCOUNTRY"
-                      item-text="NAME_A"  
-                       item-value="ALPHA3" 
+                      item-text="NAME_A"
+                       item-value="ALPHA3"
                      label="Հաշվառման երկիր"
-                      dense menu-props="auto" 
+                      dense menu-props="auto"
                      outlined height="32"
                       class="body-2  centered-input "></v-autocomplete>
                      </v-form>
-     
+
       </v-col>
 
 <!-- Մարզ Region-->
@@ -45,16 +45,16 @@
 
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-          <v-form 
+          <v-form
                 @submit.prevent >
         <v-autocomplete
  color="pink"
                     v-model="addresses.REGION"
 :value="REGION"
           :items="getRegionArm"
-       
+
         item-text="NAME_A"
-         item-value="REGION" 
+         item-value="REGION"
             label="Մարզ"
           dense
           outlined
@@ -71,7 +71,7 @@
 
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-  <v-form 
+  <v-form
                 @submit.prevent >
         <v-autocomplete
   color="pink"
@@ -80,9 +80,9 @@
 
           :items="getYerReg"
                item-text="NAME_A"
-         item-value="DCHARID" 
+         item-value="DCHARID"
           label="Բնակավայր"
-       
+
           dense
           outlined
            filled
@@ -91,12 +91,12 @@
         ></v-autocomplete>
           </v-form>
       </v-col>
-       
+
        <!-- Street Փողոց -->
      </v-row>
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-       
+
     <!-- <v-autocomplete
   color="pink"
 
@@ -104,19 +104,19 @@
 
           :items="getStreet"
                item-text="STREET"
-         item-value="SCHARID" 
-      
+         item-value="SCHARID"
+
           label="Փողոց"
-       
+
           dense
           outlined
            filled
          height="32"
            class="caption"
         ></v-autocomplete> -->
-        <v-form 
+        <v-form
                 @submit.prevent >
-        <v-text-field  
+        <v-text-field
          dense
          color="pink "
              height="32"
@@ -134,7 +134,7 @@
     </v-row>
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
- <v-form 
+ <v-form
                 @submit.prevent >
         <v-autocomplete
   color="pink"
@@ -142,7 +142,7 @@
 
           :items="type"
           label="Տիպ"
-          
+
           dense
           outlined
            filled
@@ -156,7 +156,7 @@
 
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-            <v-form 
+            <v-form
                 @submit.prevent >
     <v-text-field
     v-model="addresses.Build"
@@ -165,7 +165,7 @@
          filled
          height="32"
 dense
-           
+
             label="Շենք"
             outlined
      ></v-text-field>
@@ -174,7 +174,7 @@ dense
  </v-row>
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="12" sm="12" xs="12">
-            <v-form 
+            <v-form
                 @submit.prevent >
     <v-text-field
     v-model="addresses.AptNum"
@@ -196,7 +196,7 @@ dense
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
-  
+
       </v-col>
     </v-row>
   </v-container>
@@ -251,7 +251,7 @@ url: {
 //         },
 //  ] ,
 
-// 
+//
 
 
 // Ռայոնների ցուցակ Erevani
@@ -293,7 +293,7 @@ url: {
 
 
 
- 
+
         }
     },
     computed:{
@@ -326,13 +326,13 @@ return this.$store.state.getRegionArm
     },
 
 
- //     գտնվում են DataTable222  մեջ getYerRegFunc() մեջ 
-      
+ //     գտնվում են DataTable222  մեջ getYerRegFunc() մեջ
+
 getYerReg(){
   return this.$store.state.getYerReg
 },
 
- //     գտնվում են DataTable222 getStreetFunc() մեջ 
+ //     գտնվում են DataTable222 getStreetFunc() մեջ
 
 getStreet(){
   return this.$store.state.getStreet
@@ -349,7 +349,7 @@ this.getYerRegFunc(COUNTRY,REGION) ;
 
 
   getYerRegFunc(COUNTRY,REGION) {
-     
+
             this.axios
                 .get(this.url. getYerReg,{
                   params:{
@@ -369,7 +369,7 @@ this.getYerRegFunc(COUNTRY,REGION) ;
 },
 
 getRegionArmFunc(COUNTRY) {
-     
+
             this.axios
                 .get(this.url.getRegionArm, {
 params:{
@@ -393,7 +393,7 @@ params:{
 
 
       getYerRegFunc1() {
-     
+
             this.axios
                 .get(this.url. getYerReg,{
                   params:{

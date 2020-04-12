@@ -8,7 +8,6 @@ import BranchOtherBasicinfo from './module/BranchOtherBasicinfo'
 import getCountry from './module/getCountry'
 import getPhone from './module/getPhone'
 import getListOfJobs from './module/getListOfJobs'
-
 import determinantsOfPerson from './module/determinantsOfPerson'
 import resizeWindow from './module/resizeWindow'
 import docDetHome from './module/docDetHome'
@@ -105,11 +104,11 @@ export default new Vuex.Store({
 
         getRegionArm: [],
 
-        //    Ռայոնների ցուցակ Erevan լրացված է LeftAdresses.vue գրացման տվյալներ -ի մեջ          
+        //    Ռայոնների ցուցակ Erevan լրացված է LeftAdresses.vue գրացման տվյալներ -ի մեջ
 
         getYerReg: [],
 
-        //    Ռայոնների ցուցակ Erevan լրացված է LeftAdresses.vue գրացման տվյալներ -ի մեջ          
+        //    Ռայոնների ցուցակ Erevan լրացված է LeftAdresses.vue գրացման տվյալներ -ի մեջ
         getStreet: [],
 
         // գրանցման տեսակ registrationTypeLeftAdresses.vue

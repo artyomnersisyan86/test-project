@@ -1,4 +1,3 @@
-// import BasicTabsDirOfPersons from "../components/DirectoryOfPersons/BasicTabsDirOfPersons";
 import BasicTabsDirOfPersons from "./BasicTabsDirOfPersons";
 import DirectoryOfPersonsPopup from "./DirectoryOfPersonsPopup";
 import Datatable222 from "./Datatable222";

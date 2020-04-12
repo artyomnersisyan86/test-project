@@ -3,68 +3,48 @@ import VueRouter from 'vue-router'
 // import DirectoryOfPersons from '../views/DirectoryOfPersons.vue'
 // import EmptyComponent from '../components/EmptyComponent'
 // import emty2 from '../components/emty2'
-// import Navbar from '../components/Navbar'
+// import NavbarScript from '../components/NavbarScript'
 // import store from '../store/store'
 
 Vue.use(VueRouter)
 
-const routes = [{
-        path: '/Navbar',
-        name: 'Navbar',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import ( /* webpackChunkName: "Navbar" */ '../components/Navbar'),
+const routes = [
+    {
+        path: '/NavbarScript',
+        name: 'NavbarScript',
+        component: () => import ( '../components/Navbar'),
 
-        children: [{
+        children: [
+            {
                 path: '/DirectoryOfPersons',
                 name: 'DirectoryOfPersons',
                 // component: DirectoryOfPersons,
-                component: () =>
-                    import ( /* webpackChunkName: "DirectoryOfPersons" */ '../views/DirectoryOfPersons.vue')
-
+                component: () => import ('../views/DirectoryOfPersons.vue')
             },
             {
                 path: '/about',
                 name: 'about',
-                // route level code-splitting
-                // this generates a separate chunk (about.[hash].js) for this route
-                // which is lazy-loaded when the route is visited.
-                component: () =>
-                    import ( /* webpackChunkName: "about" */ '../views/About.vue')
+                component: () => import ('../views/About.vue')
             },
             {
                 path: '/EmptyComponent',
                 name: 'EmptyComponent',
                 // component: EmptyComponent,
-                component: () =>
-                    import ( /* webpackChunkName: "EmptyComponent" */ '../components/EmptyComponent')
-
+                component: () => import ('../components/EmptyComponent')
             },
             {
                 path: '/emty2',
                 name: 'emty2',
                 // component: emty2,
-                component: () =>
-                    import ( /* webpackChunkName: "about" */ '../components/emty2')
-
+                component: () => import ('../components/emty2')
             }
         ]
-
     },
-
-
     {
         path: '/',
         name: 'Login',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import ('../components/Login/Login')
+        component: () => import ('../components/Login/Login')
     }
-
 ]
 
 const router = new VueRouter({
@@ -78,7 +58,6 @@ const router = new VueRouter({
 //     if (store.state.tabs.length === 0 && to.path != '/') {
 //         // console.log(store.state.tabs.length)
 //         next('/');
-
 //     } else {
 //         store.state.tabs.length--
 //             next()

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     // Հեռախոսահամրների կոդեր	getPhoneCode		լրացված է PhoneleftTabs.vue -ի մեջ
-    // Հեռախոսահամրների տեսակներ	PHONEKIND	լրացված է PhoneleftTabs.vue -ի մեջ  
+    // Հեռախոսահամրների տեսակներ	PHONEKIND	լրացված է PhoneleftTabs.vue -ի մեջ
     state: {
         // Հեռախոսահամրների կոդեր
         getPhoneCode: [],

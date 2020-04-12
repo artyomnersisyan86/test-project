@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default {
-    // Պետությունների ցուցակ		լրացված է PersonalDocuments.vue  OtherBasicInformation.vue -ի մեջ, 
+    // Պետությունների ցուցակ		լրացված է PersonalDocuments.vue  OtherBasicInformation.vue -ի մեջ,
     // LeftAdresses (գրանցման տվյալների մեջ)
 
     //         // Պետությունների ցուցակ		լրացված է PersonalDocuments.vue -ի մեջ

@@ -1,5 +1,4 @@
 export function myFunction() {
-    console.log(this)
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -39,7 +38,6 @@ export function myFunction1() {
     }
 }
 export function myFunction2() {
-    console.log(this)
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput2");
     filter = input.value.toUpperCase();

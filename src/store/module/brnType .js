@@ -4,11 +4,11 @@ export default {
 
     // տվյալները լրացված են LegalEntitystateRegistrationData մեջ
     state: {
-        //    ստորաբաժանման առկայություն 
+        //    ստորաբաժանման առկայություն
         BRNTYPE: []
     },
     actions: {
-        //    ստորաբաժանման առկայություն 
+        //    ստորաբաժանման առկայություն
 
         GET_BRNTYPE_ACTIONS({ commit }) {
             return axios('http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=BRNTYPE', {
@@ -26,7 +26,7 @@ export default {
     },
     getters: {
 
-        //    ստորաբաժանման առկայություն 
+        //    ստորաբաժանման առկայություն
         GETBRNTYPE(state) {
             return state.BRNTYPE
         }
@@ -34,7 +34,7 @@ export default {
     },
 
     mutations: {
-        //    ստորաբաժանման առկայություն 
+        //    ստորաբաժանման առկայություն
 
         'SET_BRNTYPE_TO_STATE': (state, responce) => {
             state.BRNTYPE = responce.data.data

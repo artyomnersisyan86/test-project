@@ -4,11 +4,11 @@ export default {
 
     // տվյալները լրացված են LegalEntity.vue  մեջ
     state: {
-        //    կազմակերպաիրավական տեսակ 
+        //    կազմակերպաիրավական տեսակ
         organizationalType: []
     },
     actions: {
-        //    կազմակերպաիրավական տեսակ 
+        //    կազմակերպաիրավական տեսակ
 
         GET_ORGANIZATIONALTYPE_ACTIONS({ commit }) {
             return axios('http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=ORGTYP', {
@@ -26,7 +26,7 @@ export default {
     },
     getters: {
 
-        //    կազմակերպաիրավական տեսակ 
+        //    կազմակերպաիրավական տեսակ
 
         GETORGANIZATIONALTYPE(state) {
             return state.organizationalType
@@ -35,7 +35,7 @@ export default {
     },
 
     mutations: {
-        //    կազմակերպաիրավական տեսակ 
+        //    կազմակերպաիրավական տեսակ
         'SET_ORGANIZATIONALTYPE_TO_STATE': (state, responce) => {
             state.organizationalType = responce.data.data
         }

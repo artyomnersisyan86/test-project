@@ -4,11 +4,11 @@ export default {
 
     // տվյալները լրացված են LegalEntity.vue  մեջ
     state: {
-        //    ղեկավար պաշտոն 
+        //    ղեկավար պաշտոն
         leadershipPosition: []
     },
     actions: {
-        //    ղեկավար պաշտոն 
+        //    ղեկավար պաշտոն
 
         GET_LIDERSHIPPOSITION_ACTIONS({ commit }) {
             return axios('http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=WPOSTID', {
@@ -26,7 +26,7 @@ export default {
     },
     getters: {
 
-        //    ղեկավար պաշտոն 
+        //    ղեկավար պաշտոն
         GETLIDERSHIPPOSITION(state) {
             return state.leadershipPosition
         }
@@ -34,7 +34,7 @@ export default {
     },
 
     mutations: {
-        //    ղեկավար պաշտոն 
+        //    ղեկավար պաշտոն
 
         'SET_LIDERSHIPPOSITION_TO_STATE': (state, responce) => {
             state.leadershipPosition = responce.data.data

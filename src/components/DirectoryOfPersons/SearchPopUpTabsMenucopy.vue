@@ -1,6 +1,6 @@
 <template>
   <div>
- <v-container fluid pa-1 >   
+ <v-container fluid pa-1 >
         <v-row no-gutters class="pa-0 ">
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
   <v-col class="">
@@ -20,9 +20,9 @@
                       <span class="pl-9">Նորացնել</span>
                     </v-btn>
                   </div>
-                  <div 
-                                  
-                  
+                  <div
+
+
                   >
                     <!--           arr[i]="arr[i]" -->
 
@@ -32,8 +32,8 @@
                     v-for="phone1 in getCUSTPHONE" :key="phone1.ID"
 
                                     @click="getCustomerDataMethod(
-                     phone1.ID, 
-                                                phone1.STATE, 
+                     phone1.ID,
+                                                phone1.STATE,
                                                 phone1.KIND,
                                                  phone1.CODE,
                                                  phone1.PHONE,
@@ -74,7 +74,7 @@
                       </template>
                       <v-list>
                         <v-list-item class="deep-purple">
-                          
+
                           <v-list-item-title class="white--text p-0"></v-list-item-title>
                         </v-list-item>
                       </v-list>
@@ -128,10 +128,10 @@
                     </v-btn>
                   </div>
                 </v-col>
-                
+
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
 <v-col class="pl-5">
-            
+
 
                   <div>
                     <v-menu offset-y>
@@ -207,7 +207,7 @@
                     </v-btn>
                   </div>
                 </v-col>
-              
+
 <!-- <v-col cols="3"   md="3" sm="3" xs="2"> -->
 
             <v-col class="pl-5">
@@ -242,7 +242,7 @@
                   </div>
                 </v-col>
 
-              
+
               </v-row>
  </v-container>
 </div>
@@ -271,8 +271,8 @@ mounted() {
 //   for(let i = 0; i<arr.length; i++){
 // this.phone1=arr[i]
 //     console.log(this.phone1)
-    
-  
+
+
 // }
 },
 
@@ -282,13 +282,13 @@ mounted() {
         },
     },
     methods: {
-      // ID, STATE, KIND, CODE, PHONE, ISSMS, NOTE, ONLUSER, TSUSER 
+      // ID, STATE, KIND, CODE, PHONE, ISSMS, NOTE, ONLUSER, TSUSER
        getCustomerDataMethod(
         ) {
-           
+
 
            for(let i=0; i<this.getCUSTPHONE.length; i++){
-              
+
                   console.log(this.phone=this.getCUSTPHONE[i])
             var formdata = new FormData();
             formdata.append("ID",this.phone.ID);
@@ -302,7 +302,7 @@ mounted() {
             formdata.append("TSUSER", this.phone.TSUSER);
 
                 }
-          
+
             this.axios
                 .post(this.url.CUSTPHONEUPDATE, formdata
                 )
@@ -318,9 +318,9 @@ mounted() {
                     console.log(error.message);
                 });
 
-                
 
-            
+
+
 
         },
 },

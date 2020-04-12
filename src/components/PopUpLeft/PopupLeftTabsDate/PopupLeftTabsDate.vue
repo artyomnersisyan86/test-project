@@ -1,23 +1,23 @@
 <template>
 <div>
-<v-container fluid pa-0  mt-0 pl-2 
+<v-container fluid pa-0  mt-0 pl-2
 v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomerData.id"
 >
-<div   
+<div
  v-if="myGetCustomerData.PERSON===3||myGetCustomerData.PERSON===4"
 >
 <v-row no-gutters  >
     <v-col cols="12"  md="12" sm="12" xs="4">
-      
+
 <v-expansion-panels :popout="false"  :focusable="true"  :hover="true">
  <!-- @click="allFunc" -->
       <v-expansion-panel >
-         
+
         <v-expansion-panel-header ripple class="grey lighten-2 pink--text" v-if="myGetCustomerData.PERSON===3">Ֆիզիկական անձի տվյալներ  </v-expansion-panel-header>
         <v-expansion-panel-header ripple class="grey lighten-2 pink--text" v-if="myGetCustomerData.PERSON===4">Ֆիզիկական անձի տվյալներ և անհատ ձեռներեց </v-expansion-panel-header>
-        
+
         <!-- <v-expansion-panel-header ripple class="grey lighten-2 pink--text" v-else> Իրավաբանկան անձի տվյալներ  </v-expansion-panel-header> -->
-       
+
         <v-expansion-panel-content>
   <v-container fluid pa-0 >
 <v-row justify="center" no-gutters class="pt-2">
@@ -25,35 +25,35 @@ v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomer
 
 
 
-               <v-form 
+               <v-form
                 @submit.prevent >
     <v-text-field
   color="pink"
    class="body- centered-input text-center text-capitalize"
-   
+
    height="32"
    width="200"
             dense
             label="Անուն"
-            
+
             v-model="myGetCustomerData.NAME_A"
-            
+
             outlined
      ></v-text-field>
          </v-form>
          </v-col>
 </v-row>
 
-<v-row justify="center" no-gutters class="pt-2">      
+<v-row justify="center" no-gutters class="pt-2">
        <v-col cols="12"  md="8" sm="12" xs="12">
 
-         <v-form 
+         <v-form
                 @submit.prevent >
-    
+
     <v-text-field
   color="pink"
    class="body-2 centered-input text-capitalize"
-  
+
    height="32"
             dense
    label="Ազգանուն"
@@ -68,7 +68,7 @@ v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomer
 <v-row justify="center" no-gutters class="pt-2">
       <v-col cols="12"  md="8" sm="12" xs="12">
 
-                <v-form 
+                <v-form
                 @submit.prevent >
     <v-text-field
     color="pink"
@@ -90,7 +90,7 @@ v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomer
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
-  
+
     </v-col>
 </v-row>
 <LeftTabsExpensions></LeftTabsExpensions>
@@ -110,7 +110,7 @@ v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomer
 <script>
 import IndividualEntrepreneur from "./individualEntrepreneur/IndividualEntrepreneur"
 import LeftTbasGender from "./LeftTbasGender"
-import AddBirtDeathdayLeftTabs from "./AddBirtDeathdayLeftTabs" 
+import AddBirtDeathdayLeftTabs from "./AddBirtDeathdayLeftTabs"
 import EmailBloodGroupsleftTabs from "./EmailBloodGroupsleftTabs"
 import LeftTabsExpensions from './LeftTabsExpensions'
 import IDCardPasport from './IDCardPasport'
@@ -138,13 +138,13 @@ LegalEntity
 },
 data() {
   return {
-   
+
 genders:[],
 
 
   url: {
                 // gender data
-                getGenderData: "http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=SEX", 
+                getGenderData: "http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=SEX",
 
                 // Արայն խմբեր լրացված է EmailBloodGroupsleftTabs.vue
              bloodType:  "http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=BLODETYPE",
@@ -163,17 +163,17 @@ return this.$store.state.getCustomerData
 mounted () {
   this.getGendersMethod();
     this.getbloodTypeFunc();
-   
+
 },
 methods: {
   // allFunc(){
-   
+
   // },
 getGendersMethod() {
-     
+
             this.axios
                 .get(this.url.getGenderData, {
-                       
+
                     },)
                 .then(responce => {
                     console.log(responce.data);
@@ -184,16 +184,16 @@ getGendersMethod() {
                     alert("կապի խափանում");
                     console.log(error);
                 });
-    
+
 
 },
 
 // ----------------------
 getbloodTypeFunc() {
-     
+
             this.axios
                 .get(this.url.bloodType, {
-                       
+
                     },)
                 .then(responce => {
                     console.log(responce.data);
@@ -204,19 +204,19 @@ getbloodTypeFunc() {
                     alert("կապի խափանում");
                     console.log(error);
                 });
-    
+
 
 },
 // ---------------------
 
 }
-    
+
 
 }
 </script>
 
 <style>
-           
+
        /* .mylabel label.v-label.theme--light{ */
    /* font-style:italic; */
    /* font-size: 13px */

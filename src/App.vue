@@ -2,9 +2,10 @@
 <!-- <v-container fluid pa-0>
   <v-row no-gutters>
     <v-col cols="12"> -->
+<!--    lalala-->
   <v-app class="grey lighten-4 ">
 
-      <!-- <Navbar v-if="showFunction" ></Navbar> -->
+      <!-- <NavbarScript v-if="showFunction" ></NavbarScript> -->
 
      <!-- <Login></Login> -->
 
@@ -102,14 +103,14 @@
 </template>
 
 <script>
-// import Navbar from "@/components/Navbar.vue";
+// import NavbarScript from "@/components/NavbarScript.vue";
 // import Login from "./components/Login/Login"
 // import Mycomp from "./views/Mycomp";
 export default {
   name: "App",
 
   components: {
-    // Navbar,
+    // NavbarScript,
     // Login
     // Mycomp
   },

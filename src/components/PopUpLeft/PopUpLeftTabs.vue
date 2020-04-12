@@ -5,21 +5,21 @@
 <!-- v-for="myGetCustomerData in customerFunction.CUSTOMER" v-bind:key="myGetCustomerData.id"  -->
       <div>
        <v-container fluid pa-0 pt-2 >
-<v-row no-gutters="" 
+<v-row no-gutters=""
 
- 
+
 >
     <v-tabs  vertical background-color="grey lighten-4"
-     active-class="pink lighten-2" 
-     color="white"  hide-slider   
+     active-class="pink lighten-2"
+     color="white"  hide-slider
 
     >
-  
+
 <div>
-    <!-- :COUNTRY="addresses.COUNTRY" 
+    <!-- :COUNTRY="addresses.COUNTRY"
   :REGION="addresses.REGION"
    v-for="addresses in getCUSTADDRES" :key="addresses.ID"
-    
+
 
 > -->
       <v-tab :key="tab1"  class="text-capitalize caption">
@@ -29,50 +29,50 @@
       <v-tab :key="tab2" class="text-capitalize caption">
                   <!-- <v-icon left small >list_alt</v-icon> -->
                    անձնական փաստաթղթեր
-        
+
       </v-tab>
 
-<!--   
+<!--
       @click="address(addresses.COUNTRY,addresses.REGION)"
 
 
 -->
 
-      <v-tab :key="tab3"  
+      <v-tab :key="tab3"
          class="text-capitalize caption">
                   <v-icon left small ></v-icon>Հասցեներ
-       
+
       </v-tab>
 
        <v-tab :key="PhoneleftTabs"  class="text-capitalize caption">
                   <!-- <v-icon left small >phone</v-icon> -->
                   Հեռախոսներ
-       
+
       </v-tab>
       <!--BankAccounts բանկային հաշիվներ  -->
       <v-tab :key="BankAccounts" class="text-capitalize caption">
                   <v-icon left small ></v-icon>բանկային հաշիվներ
-       
+
       </v-tab>
       <!-- Կապակցված անձիք  affiliatedPerson:-->
 
 <v-tab :key="affiliatedPerson" class="text-capitalize caption">
                   <v-icon left small ></v-icon>Կապակցված անձիք
-       
+
       </v-tab>
 
  <!--  Դասակարգումներ Classifications:-->
 
 <v-tab :key="classifications" class="text-capitalize caption">
                   <v-icon left small ></v-icon>Դասակարգումներ
-       
+
       </v-tab>
 
 <!-- Այլ որոշիչներ Otherdeterminants -->
 
 <v-tab :key="otherdeterminants" class="text-capitalize caption">
                   <v-icon left small ></v-icon>Այլ որոշիչներ
-       
+
       </v-tab>
 
 
@@ -80,20 +80,20 @@
 
 <v-tab :key="attachmentDocument" class="text-capitalize caption">
                   <v-icon left small ></v-icon>Կցվող փաստաթղթեր
-       
+
       </v-tab>
 <!-- Նույնանուն անձ  PersonSameName-->
 
 <v-tab :key="personSameName" class="text-capitalize caption">
-                  <v-icon left small ></v-icon>Նույնանուն անձ 
-       
+                  <v-icon left small ></v-icon>Նույնանուն անձ
+
       </v-tab>
 <!-- BMClasses ԲՄ Դասեր -->
 
 
 <v-tab :key="personSameName" class="text-capitalize caption">
                   <v-icon left small ></v-icon>ԲՄ Դասեր
-       
+
       </v-tab>
 
 <!-- Questionnaire Հարցաշար -->
@@ -101,14 +101,14 @@
 
 <v-tab :key="questionnaire" class="text-capitalize caption">
                   <v-icon left small ></v-icon>Հարցաշար
-       
+
       </v-tab>
 
 </div>
 
 
       <v-tab-item key="tab1">
-       
+
 
   <PopupLeftTabsDate></PopupLeftTabsDate>
  <!-- <LeftTabsExpensions/> -->
@@ -126,14 +126,14 @@
 
 
   <OtherBasicInformation/>
-    
-       
+
+
       </v-tab-item>
 
 <!-- Անձնական փաստաթղթեր Personal documents -->
-      
+
       <v-tab-item key="tab2">
-       
+
 <PersonalDocuments/>
 
       </v-tab-item>
@@ -307,17 +307,17 @@ url: {
                 // // Հեռախոսահամրների տեսակներ		լրացված է PhoneleftTabs.vue -ի մեջ
 
                 //    getPHONEKIND: "http://192.168.100.153:8000/diction_s/get-dicttype-details/?CTABLE=CUSTOMER&CCOLUMN=PHONEKIND",
-                
-               
-           
+
+
+
 
 
 
 
     }
 
-        
-   
+
+
     }
 },
 
@@ -343,7 +343,7 @@ methods: {
 
 
 //   getYerRegFunc(COUNTRY,REGION) {
-     
+
 //             this.axios
 //                 .get(this.url. getYerReg,{
 //                   params:{
@@ -363,7 +363,7 @@ methods: {
 // },
 
 // getRegionArmFunc(COUNTRY) {
-     
+
 //             this.axios
 //                 .get(this.url.getRegionArm, {
 // params:{
@@ -411,7 +411,7 @@ methods: {
 
 
 // PersonalDocuments.vue մեջի տվյալենրի zapros
-            
+
 // getCountryFunc(){
 //             this.axios
 //                 .get(this.url.getCountry)
@@ -456,7 +456,7 @@ methods: {
 //         },
 
 
-    
+
 
 
 },
@@ -479,8 +479,8 @@ methods: {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-  
-  
+
+
     width: 20% important;
 
 }
