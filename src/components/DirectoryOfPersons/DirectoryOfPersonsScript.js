@@ -210,6 +210,7 @@ export default {
 		//    ստորաբաժանման առկայություն  brnType .js
 		this.GET_BRNTYPE_ACTIONS();
 		this.getDataMethod();
+		this.getDeterminantsOfPerson();
 	},
 	methods: {
 		...mapActions([
@@ -251,5 +252,9 @@ export default {
 				this.$store.state.myTable = true;
 			}).catch(function (error) {alert("կապի խափանում");console.log(error);});
 		},
+		getDeterminantsOfPerson(){
+			this.filters[6].items = this.DETERMINANTSOFPERSON;
+			this.filters[7].items = this.DOCDETHOME;
+		}
 	}
 };
