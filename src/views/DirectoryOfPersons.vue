@@ -37,6 +37,7 @@
                                                     :items="filter.items"
                                                     item-text="NAME_A" item-value="filter.model"
                                                     dense menu-props="auto" outlined height="32"
+                                                    v-on:click = "getDeterminantsOfPerson()"
                                                     class="caption selectLabel"></v-autocomplete>
                                 </v-form>
                                 <div style="width: 200px;">

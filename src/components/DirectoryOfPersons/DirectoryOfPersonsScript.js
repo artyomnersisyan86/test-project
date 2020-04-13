@@ -71,7 +71,7 @@ export default {
 					class: "",
 					fType: "autocomplete",
 					fModel: this.CHARID,
-					items: this.$store.state.determinantsOfPerson.determinantsOfPerson
+					items: []
 				}, {
 					id:7,
 					label: "Տեսակ",
@@ -79,7 +79,7 @@ export default {
 					class: "pt-2",
 					fType: "autocomplete",
 					fModel: this.DOCKIND,
-					items: this.$store.state.docDetHome.docDetHome
+					items: []
 				}, {
 					id:8,
 					label: "Փաստաթուղթ",
@@ -210,6 +210,7 @@ export default {
 		//    ստորաբաժանման առկայություն  brnType .js
 		this.GET_BRNTYPE_ACTIONS();
 		this.getDataMethod();
+		this.getDeterminantsOfPerson();
 	},
 	methods: {
 		...mapActions([
@@ -251,5 +252,9 @@ export default {
 				this.$store.state.myTable = true;
 			}).catch(function (error) {alert("կապի խափանում");console.log(error);});
 		},
+		getDeterminantsOfPerson(){
+			this.filters[6].items = this.DETERMINANTSOFPERSON;
+			this.filters[7].items = this.DOCDETHOME;
+		}
 	}
 };
