@@ -1,21 +1,16 @@
 import BasicTabsDirOfPersons from "./BasicTabsDirOfPersons";
 import DirectoryOfPersonsPopup from "./DirectoryOfPersonsPopup";
 import Datatable222 from "./Datatable222";
-import Vbutton from "../Filters/Vbutton";
-import Vinput from "../Filters/Vinput";
 import {mapActions, mapGetters} from 'vuex';
 
 export default {
 	components: {
 		DirectoryOfPersonsPopup,
 		BasicTabsDirOfPersons,
-		Datatable222,
-		Vbutton,
-		Vinput,
+		Datatable222
 	},
 	data() {
 		return {
-			model:"",
 			active_tab: 1,
 			tabs:[
 				{id:1, label:"Հիմնական", class: "mx-2 text-capitalize caption"},
@@ -256,8 +251,5 @@ export default {
 				this.$store.state.myTable = true;
 			}).catch(function (error) {alert("կապի խափանում");console.log(error);});
 		},
-		clickBtn(){
-			alert("hello new button")
-		}
 	}
 };
