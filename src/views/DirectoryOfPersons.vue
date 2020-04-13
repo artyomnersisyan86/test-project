@@ -50,7 +50,15 @@
                                 </div>
                             </div>
                         </v-col>
+                        <v-col>
+                        <Vbutton label="newButton"  class="pl-2" icon="edit"
+                                 @click="getDataMethod"></Vbutton>
+
+                        <Vinput v-model="model" class="pt-2 pl-2" ></Vinput>
+                        <p>{{model}}</p>
+                        </v-col>
                     </v-row>
+
                     <div>
                         <DirectoryOfPersonsPopup/>
                     </div>

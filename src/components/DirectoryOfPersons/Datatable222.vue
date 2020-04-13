@@ -380,6 +380,7 @@
     .page_selected {
         background-color: #8BC34A;
         cursor: pointer;
+
         color: white;
         /* z-index: -1; */
     }
